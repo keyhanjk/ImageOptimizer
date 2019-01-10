@@ -8,13 +8,19 @@ use Spatie\ImageOptimizer\Optimizers\Pngquant;
 
 //$optimizerChain = OptimizerChainFactory::create();
 
-$file = "3.jpg";
 
-$optimizerChain = (new OptimizerChain)
-    ->addOptimizer(new Jpegoptim([
-        '--strip-all',
-        '--all-progressive',
-    ]))
-    ->addOptimizer(new Pngquant([
-        '--force',
-    ]))->optimize("in/$file","out/$file");
+$files = ["test.jpeg", "test.png", "5.png", "6.png"];
+
+foreach($files as $file) {
+    $optimizerChain = (new OptimizerChain)
+        ->addOptimizer(new Jpegoptim([
+            '-m70',
+            '--strip-all',
+            '--all-progressive',
+        ]))
+        ->addOptimizer(new Pngquant([
+            '--force',
+    ]))->optimize("in/$file", "out/$file");
+
+    print "file '$file' compressed successfully.\n";
+}
