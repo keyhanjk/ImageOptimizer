@@ -9,7 +9,7 @@ use Spatie\ImageOptimizer\Optimizers\Pngquant;
 //$optimizerChain = OptimizerChainFactory::create();
 
 
-$files = ["test.jpeg", "test.png", "5.png", "6.png"];
+$files = ["1.jpg", "2.jpg", "test.jpeg", "test.png", "5.png", "6.png"];
 
 foreach($files as $file) {
     $optimizerChain = (new OptimizerChain)
